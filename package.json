@@ -1,0 +1,49 @@
+{
+  "name": "obsmin",
+  "version": "0.1.0",
+  "description": "Obfuscate and minify a mixed-language project for production distribution, without breaking it.",
+  "license": "MIT",
+  "author": "byApolloWorks",
+  "homepage": "https://github.com/byApolloWorks/obsmin#readme",
+  "bugs": {
+    "url": "https://github.com/byApolloWorks/obsmin/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byApolloWorks/obsmin.git"
+  },
+  "bin": {
+    "obsmin": "bin/cli.js",
+    "obsmin-gui": "bin/gui.js"
+  },
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node bin/cli.js",
+    "gui": "node bin/gui.js",
+    "test": "node --test tests/*.test.js",
+    "postinstall": "node -e \"console.log('obsmin installed. Run `obsmin doctor` to check your environment.')\""
+  },
+  "files": [
+    "bin",
+    "core",
+    "web",
+    "gui-server.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "commander": "^12.1.0",
+    "fast-glob": "^3.3.2",
+    "open": "^10.1.0"
+  },
+  "keywords": [
+    "obfuscate",
+    "minify",
+    "build-tool",
+    "cli",
+    "production"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "preset": "medium",
+  "exclude": [
+    "**/legacy/**",
+    "**/*.generated.js"
+  ],
+  "entry": {
+    "js": [],
+    "python": [],
+    "html": [],
+    "css": []
+  },
+  "outDir": null
+}

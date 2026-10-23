@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>obsmin</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">obs<span class="brand-mark-accent">min</span></span>
+      <span class="brand-tagline">obfuscate &amp; minify, without breaking it</span>
+    </div>
+    <a class="star-link" href="https://github.com/byApolloWorks/obsmin" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.79L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.192L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+      </svg>
+      <span>Star on GitHub</span>
+    </a>
+  </header>
+
+  <main class="layout">
+    <section class="panel config-panel">
+      <h2 class="panel-title">Project</h2>
+
+      <label class="field">
+        <span class="field-label">Project folder</span>
+        <div class="field-row">
+          <input id="projectPath" type="text" placeholder="/path/to/your/project" />
+          <button id="browseBtn" class="btn btn-ghost" type="button">Browse</button>
+        </div>
+      </label>
+
+      <label class="field">
+        <span class="field-label">Output folder</span>
+        <div class="field-row">
+          <input id="outPath" type="text" placeholder="Default: &lt;project&gt;-obs-minified" />
+          <button id="browseOutBtn" class="btn btn-ghost" type="button">Browse</button>
+        </div>
+      </label>
+
+      <fieldset class="field preset-field">
+        <legend class="field-label">Preset</legend>
+        <div id="presetOptions" class="preset-options"></div>
+      </fieldset>
+
+      <div class="field-row actions">
+        <button id="doctorBtn" class="btn btn-ghost" type="button">Run doctor</button>
+        <button id="runBtn" class="btn btn-primary" type="button">Run obsmin</button>
+      </div>
+
+      <div id="doctorResult" class="doctor-result" hidden></div>
+    </section>
+
+    <section class="panel log-panel">
+      <h2 class="panel-title">Output</h2>
+      <div id="log" class="log" aria-live="polite">
+        <p class="log-empty">Nothing yet. Choose a project folder and run obsmin.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="browseModal" class="modal" hidden>
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3 id="modalTitle" class="modal-title">Choose Folder</h3>
+          <span id="browsePath" class="modal-path"></span>
+        </div>
+        <div class="modal-header-actions">
+          <button id="browseUp" class="btn btn-ghost btn-small" type="button" title="Go up one folder">Up</button>
+          <button id="browseClose" class="btn btn-ghost btn-small" type="button" aria-label="Close">&times;</button>
+        </div>
+      </div>
+      <div id="browseShortcuts" class="browse-shortcuts"></div>
+      <ul id="browseList" class="browse-list"></ul>
+      <div class="modal-footer">
+        <button id="browseNativeBtn" class="btn btn-ghost btn-small" type="button" title="Choose using system dialog">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px; vertical-align: -2px;">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          System dialog...
+        </button>
+        <div class="modal-footer-actions">
+          <button id="browseCancel" class="btn btn-ghost" type="button">Cancel</button>
+          <button id="browseSelect" class="btn btn-primary" type="button">Use this folder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
